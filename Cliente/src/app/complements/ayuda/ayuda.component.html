@@ -1,0 +1,205 @@
+<app-navbar></app-navbar>
+<section
+  class="w-full h-full flex items-center justify-center text-black"
+  id="inicio"
+>
+  <div class="container w-[1100px] max-w-[100%] mx-auto relative p-0 mt-10">
+    <div
+      class="flex flex-col container w-[800px] max-w-[100%] m-auto relative gap-y-3 bg-white px-6 py-8 my-4 rounded-xl"
+    >
+      <a
+        class="text-[13px] w-[50px] text-gray-700 cursor-pointer hover:text-black"
+        routerLink=""
+        >Inicio /</a
+      >
+      <h2 class="border-b-2 border-blue-500">Ayuda</h2>
+
+      <div class="flex flex-col gap-y-3 text-[14px]">
+        <h2 class="font-bold">¿En qué podemos ayudarte?</h2>
+
+        <details className="sm:px-[1rem] lg:px-[3rem] w-full mb-6">
+          <summary className="text-[21px] font-bold">
+            ¿Qué es <span class="text-blue-500">PROJECTPLANNER</span>?
+          </summary>
+          <div className="g p-3">
+            <p className="text-[14px]">
+              <span class="font-bold">PROJECTPLANNER</span> es una herramienta
+              visual que permite a los equipos gestionar cualquier tipo de
+              proyecto y tareas.Te permite llevar un control firme y organizado
+              sobre todas tus operaciones y proyectos.
+            </p>
+          </div>
+        </details>
+        <details className="sm:px-[1rem] lg:px-[3rem] w-full mb-6">
+          <summary className="">¿Tengo que pagar?</summary>
+          <div className="g">
+            <p className="text-[14px] py-3">
+              No, nuestra aplicación esta diseñada para ser totalmente gratuita,
+              de igual manera, existe la opción de donar para ayudarnos a seguir
+              creciendo y poder ofrecer un mejor servicio.
+            </p>
+          </div>
+        </details>
+        <details className="sm:px-[1rem] lg:px-[3rem] w-full mb-6">
+          <summary className="">
+            ¿Cómo creo mi cuenta en
+            <span class="text-blue-500">PROJECTPLANNER</span>?
+          </summary>
+          <div className="g">
+            <p className="text-[14px] py-3">
+              Es muy fácil, a continuación te contamos los pasos que debés
+              seguir:
+            </p>
+            <div class="flex flex-col p-5">
+              <ul class="flex flex-col gap-y-1">
+                <li class="flex items-center gap-x-2 hover:cursor-text">
+                  <i class="fa-solid fa-caret-right text-blue-500"></i>Ingresá
+                  haciendo
+                  <a
+                    routerLink="registrarse"
+                    class="text-blue-500 hover:underline"
+                    >click aquí</a
+                  >.
+                </li>
+                <li class="flex gap-x-2 hover:cursor-text">
+                  <i class="fa-solid fa-caret-right text-blue-500"></i>
+                  Ingresá tus datos personales: nombre, email y contraseña.
+                </li>
+                <li class="flex gap-x-2 hover:cursor-text">
+                  <i class="fa-solid fa-caret-right text-blue-500"></i>
+                  Aceptá los Términos y Condiciones.
+                </li>
+                <li class="flex gap-x-2 hover:cursor-text">
+                  <i class="fa-solid fa-caret-right text-blue-500"></i>
+                  ¡Ya creaste tu usuario y contraseña!
+                </li>
+              </ul>
+            </div>
+          </div>
+        </details>
+        <details className="sm:px-[1rem] lg:px-[3rem] w-full">
+          <summary className="">Medios de donación disponibles</summary>
+          <div class="flex flex-col p-5">
+            <p class="font-bold">Mercado Pago</p>
+            <ul class="flex flex-col gap-y-1">
+              <li class="flex items-center gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>Ingresá a
+                la APP y/o sitio de
+                <a
+                  href="https://www.mercadopago.com.ar/"
+                  class="text-blue-500 hover:underline cursor-pointer"
+                  >Mercado Pago</a
+                >.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Escaneá el código de Barra de la página.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Seleccioná <strong>“Cómo querés pagar”</strong>.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Seleccioná tu forma de pago.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Seleccioná la opción de <strong>Pagar</strong> y listo, tu
+                donación ya fue realizada.
+              </li>
+            </ul>
+          </div>
+        </details>
+        <details className="sm:px-[1rem] lg:px-[3rem] w-full">
+          <summary className="">¿Si quiero donar, cómo lo hago?</summary>
+          <p className="text-[14px] py-3">
+            Es muy fácil, a continuación te contamos los pasos que debés seguir:
+          </p>
+          <div class="flex flex-col p-5">
+            <ul class="flex flex-col gap-y-1">
+              <li class="flex items-center gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>Ingresá a
+                la sección de donaciones desde
+                <a
+                  class="text-blue-500 cursor-pointer hover:underline"
+                  href="#donaciones"
+                  >aquí</a
+                >.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Seleccioná el monto a pagar y hacé click en siguiente.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Confirmá el monto.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Ingresá los 16 dígitos de tu tarjeta de crédito o débito.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Ingresá la fecha de vencimiento de la tarjeta y hacé click en
+                siguiente.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Ingresá el código de seguridad y hacé click en agregar tarjeta.
+              </li>
+            </ul>
+          </div>
+        </details>
+        <details className="sm:px-[1rem] lg:px-[3rem] w-full">
+          <summary className="">¿Cómo cambio mi clave?</summary>
+          <p className="text-[14px] py-3">
+            Es muy fácil, a continuación te contamos los pasos que debés seguir:
+          </p>
+          <div class="flex flex-col p-5">
+            <ul class="flex flex-col gap-y-1">
+              <li class="flex items-center gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                <a class="text-blue-500 cursor-pointer hover:underline"
+                  >Ingresa a tu cuenta aquí</a
+                >.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Elegí la opción de <strong>Clave</strong>.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Confirmá la nueva clave.
+              </li>
+            </ul>
+          </div>
+        </details>
+        <details className="sm:px-[1rem] lg:px-[3rem] w-full">
+          <summary className="">
+            Olvidé mi clave, ¿cómo ingreso a mi cuenta?
+          </summary>
+          <p className="text-[14px] py-3">
+            Si olvidaste tu clave podrás ingresar luego de confirmar que la
+            cuenta te pertenece.
+          </p>
+          <div class="flex flex-col p-5">
+            <ul class="flex flex-col gap-y-1">
+              <li class="flex items-center gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Escribí tu e-mail o usuario en la pantalla de
+                <a routerLink="login">ingreso</a>.
+              </li>
+              <li class="flex gap-x-2 hover:cursor-text">
+                <i class="fa-solid fa-caret-right text-blue-500"></i>
+                Seleccioná la opción <strong>No sé mi clave</strong> y seguí los
+                pasos.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

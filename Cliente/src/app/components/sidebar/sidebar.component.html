@@ -1,0 +1,258 @@
+<div
+  class="sidebar z-50 fixed top-0 bottom-0 lg:left-0 p-2 w-[250px] overflow-y-auto text-center bg-gray-900"
+>
+  <div class="text-gray-100 text-xl">
+    <div class="p-2.5 mt-1 flex items-center">
+      <h1 class="font-bold text-gray-200 text-[20px] text-center uppercase">
+        ProjectPlanner
+      </h1>
+      <i class="fa-solid fa-xmark ml-16 cursor-pointer lg:hidden"></i>
+    </div>
+    <hr class="my-2 text-gray-600" />
+  </div>
+  <div
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-white"
+  >
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input
+      type="text"
+      placeholder="Buscar.."
+      class="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
+    />
+  </div>
+  <div
+    class=""
+    (click)="setActiveLink(0)"
+    [ngClass]="{ 'bg-blue-600': activeLink === 0 }"
+  >
+    <a
+      class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+      routerLink="/dashboard"
+      routerLinkActive="active"
+    >
+      <i class="fa-solid fa-house"></i>
+      <span class="text-[15px] ml-4 text-gray-200 flex">Inicio</span>
+    </a>
+  </div>
+  <a
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    routerLink="/estadisticas"
+  >
+    <i class="fa-solid fa-chart-pie"></i>
+    <span class="text-[15px] ml-4 text-gray-200 flex">Estadisticas</span>
+  </a>
+  <hr class="my-2 text-gray-600" />
+  <a
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    routerLink="/calendario"
+  >
+    <i class="fa-solid fa-calendar-days"></i>
+    <span class="text-[15px] ml-4 text-gray-200 flex">Calendario</span>
+  </a>
+  <div
+    class="relative p-2.5 mt-3 duration-300 rounded-md cursor-pointer hover:bg-blue-600"
+  >
+    <div
+      type="button"
+      class="flex items-center justify-between w-full px-2 rounded-md shadow-sm text-white focus:outline-none"
+      (click)="toggleDropdownTasks()"
+    >
+      <i class="fa-solid fa-list-check"></i>
+      <li class="list-none ml-[-70px]">Tareas</li>
+      <!-- Icono de flecha hacia abajo -->
+      <i class="fa-solid fa-caret-down"></i>
+    </div>
+
+    <div
+      *ngIf="isOpenTask"
+      class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      <div class="py-1 list-none text-start" role="none">
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/nueva-tarea"
+        >
+          <li class="">Nueva Tarea</li>
+        </a>
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/tareas"
+        >
+          <li class="">Tareas</li>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="relative p-2.5 mt-3 duration-300 rounded-md cursor-pointer hover:bg-blue-600"
+  >
+    <div
+      type="button"
+      class="flex items-center justify-between w-full px-2 rounded-md shadow-sm text-white focus:outline-none"
+      (click)="toggleDropdownEmployees()"
+    >
+      <i class="fa-solid fa-users"></i>
+      <li class="list-none ml-[-40px]">Empleados</li>
+      <!-- Icono de flecha hacia abajo -->
+      <i class="fa-solid fa-caret-down"></i>
+    </div>
+
+    <div
+      *ngIf="isOpenEmployees"
+      class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      <div class="py-1 list-none text-start" role="none">
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/nuevo-empleado"
+        >
+          <li class="">Nuevo empleado</li>
+        </a>
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/empleados"
+        >
+          <li class="">Empleados</li>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="relative p-2.5 mt-3 duration-300 rounded-md cursor-pointer hover:bg-blue-600"
+    (click)="setActiveLink(5)"
+    [ngClass]="{ 'bg-blue-600 ': activeLink === 5 }"
+  >
+    <div
+      type="button"
+      class="flex items-center justify-between w-full px-2 rounded-md shadow-sm text-white focus:outline-none"
+      (click)="toggleDropdown()"
+    >
+      <i class="fa-solid fa-folder"></i>
+      <li class="list-none ml-[-50px]">Proyectos</li>
+      <!-- Icono de flecha hacia abajo -->
+      <i class="fa-solid fa-caret-down"></i>
+    </div>
+
+    <div
+      *ngIf="isOpen"
+      class="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      <div class="py-1 list-none text-start" role="none">
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/nuevo-proyecto"
+        >
+          <li class="">Nuevo proyecto</li>
+        </a>
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/proyectos"
+        >
+          <li class="">Listado de proyectos</li>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="relative p-2.5 mt-3 duration-300 rounded-md cursor-pointer hover:bg-blue-600"
+    (click)="setActiveLink(3)"
+    [ngClass]="{ 'bg-blue-600 ': activeLink === 3 }"
+  >
+    <div
+      type="button"
+      class="flex items-center justify-between w-full px-2 rounded-md shadow-sm text-white focus:outline-none"
+      (click)="toggleDropdownWorkArea()"
+    >
+      <i class="fa-solid fa-address-book"></i>
+      <li class="list-none ml-[-20px]">Área de trabajo</li>
+      <!-- Icono de flecha hacia abajo -->
+      <i class="fa-solid fa-caret-down"></i>
+    </div>
+
+    <div
+      *ngIf="isOpenWorkArea"
+      class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      <div class="py-1 list-none text-start" role="none">
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/nuevo-rol"
+        >
+          <li class="">Nuevo Rol</li>
+        </a>
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/roles"
+        >
+          <li class="">Roles</li>
+        </a>
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/nuevo-seniority"
+        >
+          <li class="">Nuevo Seniority</li>
+        </a>
+        <a
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+          role="menuitem"
+          routerLink="/senioritys"
+        >
+          <li class="">Senioritys</li>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-2 text-gray-600" />
+  <a
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    routerLink=""
+  >
+    <i class="fa-solid fa-globe"></i>
+    <span class="text-[15px] ml-4 text-gray-200 flex">Sitio Web</span>
+  </a>
+  <a
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    routerLink="/ayuda-panel"
+  >
+    <i class="fa-solid fa-circle-question"></i>
+    <span class="text-[15px] ml-4 text-gray-200 flex">Ayuda</span>
+  </a>
+  <a
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    routerLink="/configuracion"
+  >
+    <i class="fa-solid fa-gear"></i>
+    <span class="text-[15px] ml-4 text-gray-200 flex">Configuración</span>
+  </a>
+  <hr class="my-2 text-gray-600" />
+
+  <a
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-600 hover:text-white text-red-400"
+    (click)="cerrarSesion()"
+  >
+    <i class="fa-solid fa-right-from-bracket"></i>
+    <span class="text-[15px] ml-4 flex">Cerrar Sesión</span>
+  </a>
+</div>

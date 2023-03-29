@@ -1,0 +1,185 @@
+<app-navbar></app-navbar>
+<section class="w-full h-screen flex items-center justify-center text-white">
+  <div class="container grid grid-cols-2 gap-x-4 w-[70%]">
+    <!-- lado izquierdo -->
+    <div class="card bg-[#f8f9fa] shadow-2xl flex flex-col rounded-lg">
+      <div class="p-8 flex flex-col gap-y-2 border-b">
+        <p class="text-[24px] font-semibold uppercase text-lg text-black">
+          Una cuenta para tus servicios
+        </p>
+        <span class="text-[15px] text-slate-500"
+          >Al tener una cuenta, tendrás acceso a nuestra plataforma!</span
+        >
+      </div>
+      <div class="px-8 py-4 flex flex-col gap-y-4 border-b text-[#039be5]">
+        <p class="text-[24px] font-semibold uppercase text-lg">
+          project planner
+        </p>
+        <span class="text-[15px]"
+          >Es una herramienta visual que permite a los equipos gestionar
+          cualquier tipo de proyecto y tareas.Te permite llevar un control firme
+          y organizado sobre todas tus operaciones y proyectos..</span
+        >
+      </div>
+      <div class="px-8 py-4 flex flex-col gap-y-4 text-[#5dbead]">
+        <p class="text-[24px] font-semibold uppercase text-lg">Gratuito</p>
+        <span class="text-[15px]"
+          >Aplicación diseñada sin fines de lucro, es decir, no cobramos por el
+          servicio brindado.</span
+        >
+      </div>
+    </div>
+    <!-- lado derecho -->
+    <div
+      class="card flex flex-col gap-y-4 rounded-lg bg-slate-700/90 shadow-2xl px-8"
+    >
+      <p class="text-start border-b mt-12 text-[24px] font-bold">Registrate</p>
+
+      <form class="flex flex-col gap-y-3" [formGroup]="formulario">
+        <div class="flex flex-col">
+          <label for="nombreUsuario"
+            >Apodo o nombre de usuario
+            <span class="text-red-600">*</span></label
+          >
+          <input
+            type="text"
+            placeholder="Ingrese su apodo"
+            formControlName="nombreUsuario"
+            id="nombreUsuario"
+            [class.invalido]="
+              controlNombreUsuario.touched &&
+              controlNombreUsuario.hasError('required')
+            "
+            [ngClass]="
+              controlNombreUsuario.touched && controlNombreUsuario.invalid
+                ? 'alert-border'
+                : 'border p-2 rounded-lg focus:outline-none text-black'
+            "
+          />
+          <small
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="controlNombreUsuario.touched && controlNombreUsuario.invalid"
+          >
+            El nombre de usuario es requerido
+          </small>
+          <small class="text-slate-300"
+            >Este es el nombre con el que figuraras en tu perfil.</small
+          >
+        </div>
+        <div class="flex flex-col">
+          <label for="email">Email <span class="text-red-600">*</span></label>
+          <input
+            type="email"
+            placeholder="Ingrese su email"
+            id="email"
+            formControlName="email"
+            [class.invalido]="
+              controlEmail.touched && controlEmail.hasError('required')
+            "
+            [ngClass]="
+              controlEmail.touched && controlEmail.invalid
+                ? 'alert-border'
+                : 'border p-2 rounded-lg focus:outline-none text-black'
+            "
+          />
+          <small
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="controlEmail.touched && controlEmail.invalid"
+          >
+            El email es requerido
+          </small>
+        </div>
+        <div class="flex flex-col">
+          <label for="password">Contraseña</label>
+          <input
+            [type]="changetype ? 'password' : 'text'"
+            placeholder="Ingrese su contraseña"
+            id="password"
+            minlength="6"
+            class="border p-2 rounded-lg focus:outline-none text-black"
+            formControlName="password"
+            [class.invalido]="
+              controlPassword.touched && controlPassword.hasError('required')
+            "
+            [ngClass]="
+              controlPassword.touched && controlPassword.invalid
+                ? 'alert-border'
+                : 'border p-2 rounded-lg focus:outline-none text-black'
+            "
+          />
+          <button
+            class="absolute py-3 px-4 translate-x-[350px] translate-y-[20px]"
+          >
+            <span class="i-eye" (click)="mostrarPassword()"
+              ><i
+                [ngClass]="
+                  visible
+                    ? 'fa-solid fa-eye text-black'
+                    : 'fa-solid fa-eye-slash text-black'
+                "
+                id="eye"
+              ></i
+            ></span>
+          </button>
+          <small
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="controlPassword.touched && controlPassword.invalid"
+          >
+            La contraseña es requerida
+          </small>
+          <small
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="controlPassword.errors?.['minlength']"
+          >
+            La contraseña debe contener al menos 6 carácteres.
+          </small>
+        </div>
+        <div class="flex gap-x-2 text-[15px]">
+          <input
+            type="checkbox"
+            formControlName="checkbox"
+            [class.invalido]="
+              controlCheckbox.touched && controlCheckbox.hasError('required')
+            "
+            [ngClass]="
+              controlCheckbox.touched && controlCheckbox.invalid
+                ? 'alert-border'
+                : 'border p-2 rounded-lg focus:outline-none text-black'
+            "
+          />
+          <p class="text-[12px]">
+            Estoy de acuerdo con la
+            <a
+              class="text-[#039be5] hover:underline"
+              routerLink="/politica-de-privacidad"
+              >Política de privacidad</a
+            >
+            y los
+            <a
+              routerLink="/terminos-y-condiciones"
+              class="text-[#039be5] hover:underline"
+              >Términos y Condiciones</a
+            >.
+          </p>
+        </div>
+        <small
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="controlCheckbox.touched && controlCheckbox.invalid"
+        >
+          Esta opción es obligatoria.
+        </small>
+      </form>
+      <button
+        class="bg-blue-500 lg:w-[120px] px-3 py-2 rounded-lg text-white text-[15px] hover:bg-blue-600 mb-5"
+      >
+        Registrarse
+      </button>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

@@ -1,0 +1,191 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Caveat&family=Courgette&family=Heebo&family=Indie+Flower&family=Montserrat:wght@100&family=Nunito+Sans:wght@200&family=Poppins:wght@100&family=Roboto:wght@300;400;500;700;900&family=Shadows+Into+Light&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bellefair&family=Caveat&family=Cormorant+Garamond:wght@300&family=Courgette&family=Dancing+Script&family=Heebo&family=Indie+Flower&family=Marck+Script&family=Montserrat:wght@100&family=Nunito+Sans:wght@200&family=Poppins:wght@100&family=Roboto:wght@300;400;500;700;900&family=Shadows+Into+Light&family=Smooch&family=Whisper&display=swap");
+
+:root {
+  --primary-dark: #5651e5;
+  --primary-light: #709dff;
+  --primary-bg: rgba(0, 0, 43, 0.77);
+}
+
+.imgbg {
+  max-width: inherit;
+  animation: subheaderimg 10s linear infinite;
+}
+
+/* ------------------------- AYUDA ----------------- */
+details {
+  /* background: #f2f2f2; */
+  border-radius: 6px;
+  /* margin: 0.5rem; */
+  cursor: pointer;
+  position: relative;
+  border: 1px solid;
+  padding: 8px;
+}
+
+details:hover {
+  background: rgba(249, 249, 250, 0.267);
+}
+
+summary {
+  list-style: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+details summary::before {
+  /* content: url("./assets/downArrow.svg"); */
+  content: "+";
+  /* padding-right: 1rem; */
+  right: 16px;
+  position: absolute;
+  font-size: 20px;
+  margin: auto;
+  /* top: 10px; */
+  color: blue;
+}
+
+details[open] summary {
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+details[open] summary::before {
+  content: "-";
+}
+
+details[open] {
+  background: rgb(203 213 225 / 0.1);
+  box-shadow: 0.5px 0.5px 5px black;
+}
+
+details[open] p {
+  cursor: text;
+  padding: 10px;
+}
+
+/* ------------------------ COLORES -------------------------- */
+.red {
+  background-color: red;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+.yellow {
+  background-color: yellow;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+.green {
+  background-color: green;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+.blue {
+  background-color: blue;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+.orange {
+  background-color: ORANGE;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+
+/* ------------------------- ALERTAS ------------ */
+.alert-border {
+  border: 1px solid red;
+  padding: 8px;
+  border-radius: 4px;
+  color: black;
+}
+
+.alert-border:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.alert {
+  color: red;
+  border: 1px solid red;
+  background-color: rgb(240, 182, 182);
+  border-radius: 4px;
+  padding: 3px 2px;
+  margin-top: 2px;
+}
+
+.alert-panel {
+  color: red;
+  padding: 3px 2px;
+  margin-top: 2px;
+}
+
+.cursor-disabled {
+  cursor: not-allowed;
+}
+
+.cursor-disabled {
+  cursor: text;
+}
+/* -------------------- ANIMACIONES ---------------------- */
+@keyframes subheaderimg {
+  0% {
+    transform: translate(-10%);
+  }
+  50% {
+    transform: translate(-25%);
+  }
+  100% {
+    transform: translate(-15%);
+  }
+}
+/* ------------------------------------------------------- */
+
+@layer base {
+  body {
+    @apply bg-[#E0F6FF] font-nunito;
+  }
+
+  li {
+    @apply cursor-pointer;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+
+  a {
+    @apply duration-500;
+  }
+
+  tr {
+    @apply bg-gray-100;
+  }
+
+  th {
+    @apply border text-[15px];
+  }
+  td {
+    @apply text-[13px];
+  }
+}

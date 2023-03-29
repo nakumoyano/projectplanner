@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<section
+  class="w-full h-screen flex items-center justify-center text-black"
+  id="inicio"
+>
+  <div class="container w-[1100px] max-w-[100%] mx-auto relative p-0 mt-10">
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-8">
+      <!-- lado izquierdo -->
+      <div class="flex flex-col gap-y-6">
+        <h1 class="text-[70px] flex space-y-3 leading-[70px] font-bold">
+          Somos la herramienta que necesitas
+        </h1>
+        <p class="text-2xl">
+          <strong>ProjectPlanner</strong> es una aplicación para empresas de
+          todos los tamaños. Comenzá ahora para tener un control firme sobre tus
+          operaciones y proyectos.
+        </p>
+        <div class="flex gap-x-2 text-white">
+          <a routerLink="login">
+            <button
+              class="border-solid border-2 border-blue-500 hover:border-blue-600 rounded-md px-5 py-3 text-blue-500 hover:bg-blue-600 duration-500 hover:text-white"
+            >
+              Empezar ahora
+            </button>
+          </a>
+        </div>
+      </div>
+      <!-- lado derecho -->
+      <div class="items-center justify-center flex flex-col">
+        <img
+          src="assets/tablaDatos.png"
+          alt=""
+          class="rounded-xl object-cover"
+        />
+        <div
+          class="grid grid-rows-none lg:grid-cols-2 py-4 gap-2 md:gap-4 w-full h-full object-cover col-span-2 md:col-span-3 row-span-2"
+        >
+          <img
+            src="https://i0.wp.com/www.phdata.io/wp-content/uploads/2022/04/PMO-Dashboard-Featured-Image.jpg"
+            alt=""
+            class="rounded-xl h-full"
+          />
+          <img
+            src="https://cdn.boldbi.com/wp/pages/dashboards/information-technology/intervals-project-mgmt.svg"
+            alt=""
+            class="rounded-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-acerca-de></app-acerca-de>
+<app-proyectos></app-proyectos>
+<app-casos-de-uso></app-casos-de-uso>
+<app-donaciones></app-donaciones>
+<app-footer></app-footer>

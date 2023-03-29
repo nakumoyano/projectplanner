@@ -1,0 +1,54 @@
+<footer class="w-full bg-black shadow relative">
+  <div
+    class="container w-[1100px] max-w-[100%] m-auto relative p-0 justify-between flex"
+  >
+    <div class="flex flex-col text-gray-400/80 py-4 px-3 text-[13px] gap-y-1">
+      <p>
+        © 2022 - Derechos reservados -
+        <span class="text-white">ProjectPlanner</span>
+      </p>
+      <p class="text-gray-300">
+        <a href="" class="hover:text-white" routerLink="politica-de-privacidad">
+          Política de privacidad
+        </a>
+        <a
+          href=""
+          class="hover:text-white duration-500"
+          routerLink="politica-de-cookies"
+          ><span class="text-gray-400/80">/</span> Política de Cookies
+        </a>
+        <a
+          href=""
+          class="hover:text-white duration-500"
+          routerLink="terminos-y-condiciones"
+          ><span class="text-gray-400/80">/</span> Términos y Condiciones
+        </a>
+        <a href="" class="hover:text-white" routerLink="dmca">
+          <span class="text-gray-400/80">/</span> DMCA
+        </a>
+        <a routerLink="/ayuda" class="hover:text-white">
+          <span class="text-gray-400/80">/</span>&nbsp;
+          <i class="fa-solid fa-circle-question mr-1"></i>Ayuda
+        </a>
+        <a class="hover:text-white" routerLink="/contacto">
+          <span class="text-gray-400/80">/</span> Contacto
+        </a>
+      </p>
+      <p>
+        Estamos comprometidos a cumplir con la DMCA. Cualquier inconveniente o
+        duda, contáctenos.
+      </p>
+    </div>
+    <div class="flex justify-between items-center">
+      <span
+        class="text-2xl text-white cursor-pointer flex items-center gap-x-2"
+        routerLink=""
+        ><img src="./assets/icon-project.png" alt="" class="h-10 inline" />
+        <p class="text-[18px]">ProjectPlanner</p></span
+      >
+      <span class="text-white text-3xl cursor-pointer mx-2 md:hidden block"
+        ><i class="fa-solid fa-bars" onclick="menu(this)" name="menu"></i>
+      </span>
+    </div>
+  </div>
+</footer>
