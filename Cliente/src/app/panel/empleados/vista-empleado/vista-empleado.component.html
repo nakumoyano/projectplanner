@@ -1,1 +1,147 @@
-<p>vista-empleado works!</p>
+<app-sidebar></app-sidebar>
+<section class="apps-hero w-full h-full">
+  <div class="flex gap-x-4 justify-center mx-auto text-black">
+    <div
+      class="flex flex-col container w-[1000px] max-w-[1000px] ml-40 relative gap-y-3 px-6 py-3 rounded-xl"
+    >
+      <h3 class="border-solid border-b-2 border-slate-400 uppercase text-lg">
+        Empleados
+      </h3>
+
+      <div class="container mt-3">
+        <div class="flex justify-between items-center">
+          <div class="flex gap-x-4">
+            <div class="form-check form-check-inline gap-x-2 flex">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="sexo"
+                id="todos"
+                value="Todos"
+                [(ngModel)]="radioButtonSeleccionado"
+              />
+              <label class="form-check-label" for="todos"
+                >Todos
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalEmpleados()
+                }}</span>
+              </label>
+            </div>
+            <div class="form-check form-check-inline gap-x-2 flex">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="area"
+                id="developer"
+                [(ngModel)]="radioButtonSeleccionado"
+                value="Developer"
+              />
+              <label class="form-check-label" for="developer"
+                >Developer
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalDeveloper()
+                }}</span></label
+              >
+            </div>
+            <div class="form-check form-check-inline gap-x-2 flex">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="area"
+                id="qa"
+                [(ngModel)]="radioButtonSeleccionado"
+                value="QA"
+              />
+              <label class="form-check-label" for="qa"
+                >QA
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalQA()
+                }}</span></label
+              >
+            </div>
+            <div class="form-check form-check-inline gap-x-2 flex">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="area"
+                id="disenador"
+                [(ngModel)]="radioButtonSeleccionado"
+                value="Diseñador"
+              />
+              <label class="form-check-label" for="disenador"
+                >Diseñador<span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalDiseniador()
+                }}</span></label
+              >
+            </div>
+          </div>
+          <div
+            class="p-2.5 flex items-center justify-center rounded-md px-4 duration-300 cursor-pointer border-solid border-[1px] border-black text-black"
+          >
+            <input
+              type="text"
+              placeholder="Buscar.."
+              class="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
+            />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-body">
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th class="px-4 py-2">Id</th>
+                  <th class="px-4 py-2">Nombre</th>
+                  <th class="px-4 py-2">Apellido</th>
+                  <th class="px-4 py-2">Área de trabajo</th>
+                  <th class="px-4 py-2">Tipo de trabajo</th>
+                  <th class="px-4 py-2">Seniority</th>
+                  <th class="px-4 py-2">Email</th>
+                  <th class="px-4 py-2">Teléfono</th>
+                  <th class="px-4 py-2">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let e of listEmpleados">
+                  <tr
+                    *ngIf="
+                      radioButtonSeleccionado == 'Todos' ||
+                      radioButtonSeleccionado == e.areaTrabajo
+                    "
+                  >
+                    <td class="border px-4 py-2">{{ e.identificador }}</td>
+                    <td class="border px-4 py-2">{{ e.nombre }}</td>
+                    <td class="border px-4 py-2">{{ e.apellido }}</td>
+                    <td class="border px-4 py-2">{{ e.areaTrabajo }}</td>
+                    <td class="border px-4 py-2">Aplicacion Web</td>
+                    <td class="border px-4 py-2">{{ e.seniority }}</td>
+                    <td class="border px-4 py-2">{{ e.email }}</td>
+                    <td class="border px-4 py-2">{{ e.telefono }}</td>
+                    <td class="border px-4 py-2 gap-x-3 flex">
+                      <button
+                        class="bg-red-600 hover:bg-red-700 duration-500 px-4 py-3 text-white rounded"
+                      >
+                        Eliminar
+                      </button>
+                      <button
+                        class="bg-gray-600 hover:bg-gray-700 duration-500 px-4 py-3 text-white rounded"
+                      >
+                        Editar
+                      </button>
+                      <button
+                        class="bg-blue-600 hover:bg-blue-700 duration-500 px-4 py-3 text-white rounded"
+                      >
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

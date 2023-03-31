@@ -1,1 +1,185 @@
-<p>vista-proyectos works!</p>
+<app-sidebar></app-sidebar>
+<section class="apps-hero w-full h-full">
+  <div class="flex gap-x-4 justify-center mx-auto text-black">
+    <div
+      class="flex flex-col container w-[1000px] max-w-[1000px] ml-40 relative gap-y-3 px-6 py-3 rounded-xl"
+    >
+      <h3 class="border-solid border-b-2 border-slate-400 uppercase text-lg">
+        Proyectos
+      </h3>
+
+      <div class="container mt-3">
+        <div class="flex justify-between items-center">
+          <div class="flex gap-x-4">
+            <div class="form-check form-check-inline flex gap-x-1">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="area"
+                id="todos"
+                value="Todos"
+                [(ngModel)]="radioButtonSeleccionado"
+              />
+              <label class="form-check-label cursor-pointer" for="todos"
+                >Todos
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalProyectos()
+                }}</span></label
+              >
+            </div>
+            <div class="form-check form-check-inline flex gap-x-1">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="area"
+                id="web"
+                [(ngModel)]="radioButtonSeleccionado"
+                value="Aplicacion Web"
+              />
+              <label class="form-check-label cursor-pointer" for="web"
+                >Aplicación Web
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalWeb()
+                }}</span></label
+              >
+            </div>
+            <div class="form-check form-check-inline flex gap-x-1">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="area"
+                id="qa"
+                [(ngModel)]="radioButtonSeleccionado"
+                value="Aplicacion de Escritorio"
+              />
+              <label class="form-check-label cursor-pointer" for="qa"
+                >Aplicacion de escritorio
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalEscritorio()
+                }}</span></label
+              >
+            </div>
+            <div class="form-check form-check-inline flex gap-x-1">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="tipoProyecto"
+                id="mobile"
+                [(ngModel)]="radioButtonSeleccionado"
+                value="Mobile"
+              />
+              <label class="form-check-label cursor-pointer" for="mobile"
+                >Mobile
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalMobile()
+                }}</span></label
+              >
+            </div>
+            <div class="form-check form-check-inline flex gap-x-1">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="area"
+                id="disenador"
+                [(ngModel)]="radioButtonSeleccionado"
+                value="Otro"
+              />
+              <label class="form-check-label cursor-pointer" for="disenador"
+                >Otro
+                <span class="bg-cyan-400 py-1 px-2 rounded-[100%]">{{
+                  getTotalOtro()
+                }}</span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="p-2.5 flex items-center justify-center rounded-md px-4 duration-300 cursor-pointer border-solid border-[1px] border-black text-black"
+          >
+            <input
+              type="text"
+              placeholder="Buscar.."
+              class="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
+              id="busqueda"
+              name="busqueda"
+              [(ngModel)]="searchTerm"
+            />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-body">
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th class="px-4 py-2">Titulo proyecto</th>
+                  <th class="px-4 py-2">Área del proyecto</th>
+                  <th class="px-4 py-2">Empleado</th>
+                  <th class="px-4 py-2">Seniority asignado</th>
+                  <th class="px-4 py-2">Fecha de creación</th>
+                  <th class="px-4 py-2">Estado</th>
+                  <th class="px-4 py-2">Tipo de proyecto</th>
+                  <th class="px-4 py-2">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container
+                  *ngFor="let e of listProyectos; let i = index"
+                  [ngSwitch]="e.estado"
+                >
+                  <tr
+                    *ngIf="
+                      radioButtonSeleccionado == 'Todos' ||
+                      radioButtonSeleccionado == e.tipoProyecto
+                    "
+                  >
+                    <td class="border px-4 py-2">{{ e.tituloProyecto }}</td>
+                    <td class="border px-4 py-2">{{ e.areaProyecto }}</td>
+                    <td class="border px-4 py-2">Jose</td>
+                    <td class="border px-4 py-2">{{ e.seniorityAsignado }}</td>
+                    <td class="border px-4 py-2">{{ e.fechaCreacion }}</td>
+                    <td class="border px-4 py-2" *ngSwitchCase="'Finalizado'">
+                      <p class="blue">{{ e.estado }}</p>
+                    </td>
+                    <td class="border px-4 py-2" *ngSwitchCase="'En Curso'">
+                      <p class="green">{{ e.estado }}</p>
+                    </td>
+                    <td class="border px-4 py-2" *ngSwitchCase="'Retrasado'">
+                      <p class="orange">{{ e.estado }}</p>
+                    </td>
+                    <td class="border px-4 py-2" *ngSwitchCase="'En Espera'">
+                      <p class="yellow">{{ e.estado }}</p>
+                    </td>
+                    <td class="border px-4 py-2" *ngSwitchCase="'Cancelado'">
+                      <p class="red">
+                        {{ e.estado }}
+                      </p>
+                    </td>
+                    <td class="border px-4 py-2">{{ e.tipoProyecto }}</td>
+
+                    <td class="border px-4 py-2 gap-x-3 flex">
+                      <button
+                        class="bg-red-600 hover:bg-red-700 duration-500 px-4 py-3 text-white rounded"
+                      >
+                        Eliminar
+                      </button>
+                      <button
+                        class="bg-gray-600 hover:bg-gray-700 duration-500 px-4 py-3 text-white rounded"
+                      >
+                        Editar
+                      </button>
+                      <button
+                        class="bg-blue-600 hover:bg-blue-700 duration-500 px-4 py-3 text-white rounded"
+                      >
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
